@@ -1,0 +1,605 @@
+/* ================================
+   기본 설정
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    "Malgun Gothic",
+    sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ================================
+   전체 레이아웃
+================================ */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ================================
+   사이드바
+================================ */
+
+.sidebar {
+  width: 230px;
+  min-width: 230px;
+
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+
+  padding: 25px 15px;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  /* 다른 요소보다 위에 표시 */
+  z-index: 1000;
+
+  /* 메뉴 클릭 가능 */
+  pointer-events: auto;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+  padding: 0 10px;
+
+  color: #172033;
+}
+
+.logo span {
+  color: #2563eb;
+}
+
+
+/* ================================
+   메뉴
+================================ */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  position: relative;
+  z-index: 1001;
+}
+
+.menu a {
+  display: block;
+
+  padding: 13px;
+
+  border-radius: 10px;
+
+  color: #667085;
+  font-weight: 600;
+
+  position: relative;
+  z-index: 1002;
+
+  cursor: pointer;
+
+  /* 클릭 이벤트 허용 */
+  pointer-events: auto;
+
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.menu a:hover {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.menu a:active {
+  background: #dce9ff;
+}
+
+
+/* ================================
+   메인 영역
+================================ */
+
+.main {
+  margin-left: 230px;
+
+  width: calc(100% - 230px);
+  min-height: 100vh;
+
+  padding: 30px;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================================
+   헤더
+================================ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.title {
+  margin: 0 0 7px;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #172033;
+}
+
+.sub {
+  color: #7b8494;
+  font-size: 15px;
+}
+
+
+/* ================================
+   통계 카드
+================================ */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.card {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.03);
+
+  position: relative;
+  z-index: 1;
+}
+
+.card-title {
+  color: #667085;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.number {
+  font-size: 30px;
+  font-weight: 700;
+
+  margin-top: 10px;
+
+  color: #172033;
+}
+
+
+/* ================================
+   버튼
+================================ */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 9px;
+
+  padding: 11px 16px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-weight: 700;
+
+  /* 글자 줄바꿈 방지 */
+  white-space: nowrap;
+
+  /* 버튼 크기 유지 */
+  min-width: 80px;
+  min-height: 42px;
+
+  /* 버튼이 작아지지 않도록 */
+  flex-shrink: 0;
+
+  /* 클릭 우선순위 */
+  position: relative;
+  z-index: 10;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.gray {
+  background: #eef1f5;
+  color: #344054;
+}
+
+.btn.gray:hover {
+  background: #e2e6ec;
+}
+
+.btn.red {
+  background: #fee4e2;
+  color: #c62828;
+}
+
+.btn.red:hover {
+  background: #fdd4d0;
+}
+
+
+/* ================================
+   입력창
+================================ */
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d5d9e0;
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #172033;
+
+  position: relative;
+  z-index: 5;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #98a2b3;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+/* ================================
+   입력 필드
+================================ */
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-weight: 700;
+  font-size: 14px;
+
+  color: #344054;
+}
+
+
+/* ================================
+   테이블
+================================ */
+
+.table-card {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+
+  padding: 20px;
+  margin-top: 18px;
+
+  overflow-x: auto;
+
+  position: relative;
+  z-index: 1;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px 10px;
+
+  border-bottom: 1px solid #edf0f3;
+
+  text-align: left;
+}
+
+th {
+  color: #667085;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+td {
+  color: #172033;
+  font-size: 15px;
+}
+
+tbody tr:hover {
+  background: #fafbfc;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* ================================
+   출결 상태 버튼
+================================ */
+
+.status-buttons {
+  display: flex;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.status-buttons button {
+  border: 1px solid #d8dde5;
+
+  background: #ffffff;
+  color: #475467;
+
+  border-radius: 7px;
+
+  padding: 7px 10px;
+
+  /* 줄바꿈 방지 */
+  white-space: nowrap;
+
+  flex-shrink: 0;
+
+  position: relative;
+  z-index: 10;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.status-buttons button:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.status-buttons button.active {
+  background: #2563eb;
+  color: #ffffff;
+
+  border-color: #2563eb;
+}
+
+
+/* ================================
+   안내 메시지
+================================ */
+
+.notice {
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  background: #eef4ff;
+  color: #2457b8;
+
+  margin-bottom: 15px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.error {
+  color: #d32f2f;
+
+  font-size: 14px;
+
+  margin-bottom: 12px;
+}
+
+
+/* ================================
+   로그인 / 회원가입
+================================ */
+
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.login-box {
+  background: #ffffff;
+
+  width: 420px;
+  max-width: 100%;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.04);
+
+  position: relative;
+  z-index: 10;
+}
+
+.login-box h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+
+/* ================================
+   모바일
+================================ */
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    width: 200px;
+    min-width: 200px;
+  }
+
+  .main {
+    margin-left: 200px;
+
+    width: calc(100% - 200px);
+  }
+}
+
+
+@media (max-width: 650px) {
+  .container {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+
+    width: 100%;
+    min-width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    padding: 10px;
+  }
+
+  .main {
+    margin-left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+  }
+
+  .header {
+    align-items: flex-start;
+
+    gap: 15px;
+
+    flex-direction: column;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .login-box {
+    padding: 25px;
+  }
+}
